@@ -1,0 +1,25 @@
+import random
+
+randNum = random.randrange(1, 200)
+guessNum, guessCount = 0, 0
+
+while(randNum != guessNum and guessCount < 10):
+    guessNum = int(input(f"Guess {guessCount+1} out of 10\nPlease enter a number between 1 and 200\n>>>"))
+    if(randNum == guessNum):
+        print("You win...")
+        break
+    elif(guessNum > randNum):
+        if(guessNum < randNum + 10):
+            print("Your guess is greater than the random number and is also within the range of 10 random numbers.")
+        else:
+            print("Your guess is greater than the random number.")
+    elif(guessNum < randNum):
+        if(guessNum > randNum - 10):
+            print("Your guess is smaller than the random number and is also within the range of 10 random numbers.")
+        else:
+            print("Your guess is smaller than the random number.")
+    else:
+        print("Your guess is wrong. Please guess again...\n")
+    guessCount += 1
+else:
+    print("Your turn is over. You lose.")
